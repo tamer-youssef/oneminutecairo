@@ -9,7 +9,7 @@ Visit spots around Cairo for a minute each. These are all one minute videos take
 example video details: 17 July 2025 – 4:38 P.M. – Victoria Square, Maadi, Cairo, Egypt
 
 ### contributors
-none yet
+tamer
 
 ### more stuff
 One Minute Cairo is built by [tamerable](https://tamerable.com), and is heavily inspired by Elliot Cost's [oneminutepark.tv](oneminutepark.tv).
