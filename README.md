@@ -12,4 +12,4 @@ example video details: 17 July 2025 – 4:38 P.M. – Victoria Square, Maadi, C
 tamer
 
 ### more stuff
-One Minute Cairo is built by [tamerable](https://tamerable.com), and is heavily inspired by Elliot Cost's [oneminutepark.tv](oneminutepark.tv).
+One Minute Cairo is built by [tamerable](https://tamerable.com), and is heavily inspired by Elliot Cost's [oneminutepark.tv](https://oneminutepark.tv).
