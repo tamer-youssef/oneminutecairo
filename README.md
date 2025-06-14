@@ -5,7 +5,7 @@ Visit spots around Cairo for a minute each. These are all one minute videos take
 1. Walk around Cairo until you find a spot you like.
 2. Take note of the date, time, and location.
 3. Pull out your phone's camera, rotate it to landscape, and start recording. Try to hold it still, don't look around. Stop the recording at exactly 1 minute.
-4. Send the video to tameryoussef2@gmail.com with the date, time, location, and your name or social media @ so we can add you to the contributors section!
+4. Send the video to tameryoussef2@gmail.com with the date, time, location, and your name or social media @ so we can add you to the contributors section!  
 example video details: 17 July 2025 – 4:38 P.M. – Victoria Square, Maadi, Cairo, Egypt
 
 ### contributors
