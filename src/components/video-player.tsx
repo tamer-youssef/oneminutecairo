@@ -27,7 +27,7 @@ export default function VideoPlayer({ isMuted, onTitleChange }: VideoPlayerProps
         setIsLoading(true);
         const data = await getArenaVideos();
         if (!data || data.length === 0) {
-          setError("No videos found. Please send Tamer a message, he'll know how to fix it.");
+          setError("No videos found. Send your contribution to tameryoussef2@gmail.com!");
         } else {
           setVideos(data);
           // pick random video
@@ -36,13 +36,12 @@ export default function VideoPlayer({ isMuted, onTitleChange }: VideoPlayerProps
           if (onTitleChange) onTitleChange(data[randomIndex].title || "");
         }
       } catch (err) {
-        setError("Failed to load videos. Please send Tamer a message, he'll know how to fix it.");
+        setError("Failed to load videos. It's likely an issue on our end. Please send Tamer a message, he'll know how to fix it.");
       } finally {
         setIsLoading(false);
       }
     }
     fetchData();
-    // eslint-disable-next-line
   }, []);
 
   // preloading the next video
