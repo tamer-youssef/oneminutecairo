@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# One Minute Cairo
+Visit spots around Cairo for a minute each. These are all one minute videos taken by you. We're looking to collect 1440 minutes, exactly enough to fill a day's worth.
 
-## Getting Started
+### how to make a One Minute Cairo
+1. Walk around Cairo until you find a spot you like.
+2. Take note of the date, time, and location.
+3. Pull out your phone's camera, rotate it to landscape, and start recording. Try to hold it still, don't look around. Stop the recording at exactly 1 minute.
+4. Send the video to tameryoussef2@gmail.com with the date, time, location, and your name or social media @ so we can add you to the contributors section!  
+example video details: 17 July 2025 – 4:38 P.M. – Victoria Square, Maadi, Cairo, Egypt
 
-First, run the development server:
+### contributors
+tamer
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### more stuff
+One Minute Cairo is built by [tamerable](https://tamerable.com), and is heavily inspired by Elliot Cost's [oneminutepark.tv](https://oneminutepark.tv).
