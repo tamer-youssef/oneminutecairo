@@ -46,8 +46,8 @@ export default function AboutButton() {
           <div className="flex flex-col gap-4 text-left text-pretty">
 
             <section className="text-sm text-muted-foreground">
-              <p className="mb-1">Welcome to One Minute Cairo, a digital archive of one minute videos from around the city, all filmed by people like you. The goal is to collect 1440 minutes; enough for every minute in a day.</p>
-              <p>{minsCount === null ? "We're having an issue finding out how many minutes we have so far. Sorry!" : `We've collected ${minsCount}/1440 minutes so far.`}</p>
+              <p className="mb-1">Welcome to One Minute Cairo, a digital archive of one minute videos from around Cairo, all filmed by humans like you. The goal is to collect 1440 minutes; enough for every minute in a day.</p>
+              <p>{minsCount === null ? "We're having an issue finding out how many minutes we've collected so far. Please check back shortly!" : `We've collected ${minsCount}/1440 minutes so far!`}</p>
             </section>
 
             <section>
