@@ -5,8 +5,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Grid } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { LayoutGrid } from 'lucide-react';
 
 interface VideoBlock {
   videoUrl: string;
@@ -22,7 +21,6 @@ export default function BrowseButton({ onVideoSelect }: BrowseButtonProps) {
   const [videos, setVideos] = useState<VideoBlock[]>([]);
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -41,7 +39,6 @@ export default function BrowseButton({ onVideoSelect }: BrowseButtonProps) {
 
   const handleVideoSelect = (index: number) => {
     onVideoSelect(index);
-    router.push(`/?v=${index}`, { scroll: false });
     setIsOpen(false);
   };
 
@@ -49,17 +46,17 @@ export default function BrowseButton({ onVideoSelect }: BrowseButtonProps) {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" size="icon">
-          <Grid className="size-4" />
+          <LayoutGrid className="size-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="bg-background/20 backdrop-blur-3xl max-h-[80vh] min-w-[50vw] overflow-y-auto">
+      <DialogContent className="bg-black/20 backdrop-blur-3xl max-h-[70vh] min-w-[50vw] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-left">Library</DialogTitle>
         </DialogHeader>
         {loading ? (
           <div className="flex justify-center items-center min-h-[200px]">loading archive...</div>
         ) : (
-          <div className="grid sm:grid-cols-4 grid-cols-2 gap-4 mt-4">
+          <div className="grid lg:grid-cols-4 grid-cols-2 gap-4">
             {videos.map((video, index) => (
               <div 
                 key={index} 

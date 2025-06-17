@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useState } from "react";
 import MuteButton from "@/components/mute-button";
 import AboutButton from "@/components/about-button";
 import VideoInfoText from "@/components/video-info";
@@ -12,29 +11,6 @@ export default function Home() {
   const [isMuted, setIsMuted] = useState(true);
   const [videoTitle, setVideoTitle] = useState("");
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
-  // handle URL parameter on initial load
-  useEffect(() => {
-    const videoId = searchParams.get('v');
-    if (videoId !== null) {
-      const index = parseInt(videoId);
-      if (!isNaN(index)) {
-        setSelectedVideoIndex(index);
-      }
-    }
-  }, [searchParams]);
-
-  // update URL when video changes
-  const handleVideoIndexChange = (index: number | null) => {
-    setSelectedVideoIndex(index);
-    if (index !== null) {
-      router.push(`/?v=${index}`, { scroll: false });
-    } else {
-      router.push('/', { scroll: false });
-    }
-  };
 
   const handleMuteToggle = () => setIsMuted((prev) => !prev);
 
@@ -58,7 +34,7 @@ export default function Home() {
           isMuted={isMuted} 
           onTitleChange={setVideoTitle} 
           selectedVideoIndex={selectedVideoIndex}
-          onVideoIndexChange={handleVideoIndexChange}
+          onVideoIndexChange={setSelectedVideoIndex}
         />
       </div>
     </main>
