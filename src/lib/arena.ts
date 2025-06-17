@@ -16,7 +16,8 @@ export async function getArenaVideos() {
     )
     .map((block: any) => ({
       videoUrl: block.attachment.url,
-      title: block.title || "no details"
+      title: block.title || "no details",
+      thumbnailUrl: block.image?.display?.url
     }));
 
   return videoBlocks;
