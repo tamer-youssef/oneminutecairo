@@ -12,16 +12,16 @@ export default function Home() {
   const [videoTitle, setVideoTitle] = useState("");
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   const handleMuteToggle = () => setIsMuted((prev) => !prev);
 
   return (
     <main className="w-screen h-screen">
       {/* duration counter */}
-      <div className="fixed top-2 left-2 text-lg">
-        <p>{Math.floor(currentTime)}</p>
+      <div className="fixed top-2 left-2 text-sm">
+        <p>{duration > 0 && Math.floor(duration - currentTime)}</p>
       </div>
-
       {/* ui buttons */}
       <div>
         <div className="flex gap-1 fixed bottom-2 left-2">
@@ -29,7 +29,7 @@ export default function Home() {
           <BrowseButton onVideoSelect={setSelectedVideoIndex} />
           <MuteButton isMuted={isMuted} onToggle={handleMuteToggle} />
         </div>
-        <div className="flex fixed bottom-2 right-2 text-sm [writing-mode:vertical-lr] rotate-180 sm:[writing-mode:unset] sm:rotate-0">
+        <div className="flex gap-1 fixed bottom-2 right-2 text-sm [writing-mode:vertical-lr] rotate-180 sm:[writing-mode:unset] sm:rotate-0">
           <VideoInfoText title={videoTitle} />
         </div>
       </div>
@@ -42,6 +42,7 @@ export default function Home() {
           selectedVideoIndex={selectedVideoIndex}
           onVideoIndexChange={setSelectedVideoIndex}
           onTimeUpdate={setCurrentTime}
+          onDurationChange={setDuration}
         />
       </div>
     </main>

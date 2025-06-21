@@ -14,9 +14,10 @@ interface VideoPlayerProps {
   selectedVideoIndex: number | null;
   onVideoIndexChange: (index: number | null) => void;
   onTimeUpdate?: (time: number) => void;
+  onDurationChange?: (duration: number) => void;
 }
 
-export default function VideoPlayer({ isMuted, onTitleChange, selectedVideoIndex, onVideoIndexChange, onTimeUpdate }: VideoPlayerProps) {
+export default function VideoPlayer({ isMuted, onTitleChange, selectedVideoIndex, onVideoIndexChange, onTimeUpdate, onDurationChange }: VideoPlayerProps) {
   const [videos, setVideos] = useState<VideoBlock[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -120,6 +121,7 @@ export default function VideoPlayer({ isMuted, onTitleChange, selectedVideoIndex
           controls={false}
           className="object-cover w-full h-full"
           onTimeUpdate={(e) => onTimeUpdate && onTimeUpdate(e.currentTarget.currentTime)}
+          onLoadedMetadata={(e) => onDurationChange && onDurationChange(e.currentTarget.duration)}
           onEnded={() => {
             const nextIndex = (currentIndex + 1) % videos.length;
             setCurrentIndex(nextIndex);
