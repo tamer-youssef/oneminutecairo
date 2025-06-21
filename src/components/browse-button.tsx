@@ -77,7 +77,7 @@ export default function BrowseButton({ onVideoSelect }: BrowseButtonProps) {
                     </div>
                   )}
                 </div>
-                <p className="mt-1 text-sm text-center text-wrap break-all">
+                <p className="mt-1 text-sm text-center text-wrap">
                   {video.title}
                 </p>
               </div>
