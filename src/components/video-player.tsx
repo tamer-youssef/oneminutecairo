@@ -11,9 +11,12 @@ interface VideoBlock {
 interface VideoPlayerProps {
   isMuted: boolean;
   onTitleChange?: (title: string) => void;
+  selectedVideoIndex: number | null;
+  onVideoIndexChange: (index: number | null) => void;
+  onTimeUpdate?: (time: number) => void;
 }
 
-export default function VideoPlayer({ isMuted, onTitleChange }: VideoPlayerProps) {
+export default function VideoPlayer({ isMuted, onTitleChange, selectedVideoIndex, onVideoIndexChange, onTimeUpdate }: VideoPlayerProps) {
   const [videos, setVideos] = useState<VideoBlock[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,10 +33,15 @@ export default function VideoPlayer({ isMuted, onTitleChange }: VideoPlayerProps
           setError("No videos found. Send your contribution to tameryoussef2@gmail.com!");
         } else {
           setVideos(data);
-          // pick random video
-          const randomIndex = Math.floor(Math.random() * data.length);
-          setCurrentIndex(randomIndex);
-          if (onTitleChange) onTitleChange(data[randomIndex].title || "");
+          // pick random video if no video is selected
+          if (selectedVideoIndex === null) {
+            const randomIndex = Math.floor(Math.random() * data.length);
+            setCurrentIndex(randomIndex);
+            onVideoIndexChange(randomIndex);
+          } else {
+            setCurrentIndex(selectedVideoIndex);
+          }
+          if (onTitleChange) onTitleChange(data[selectedVideoIndex ?? 0].title || "");
         }
       } catch (err) {
         setError("Failed to load videos. It's likely an issue on our end. Please send Tamer a message, he'll know how to fix it.");
@@ -43,6 +51,13 @@ export default function VideoPlayer({ isMuted, onTitleChange }: VideoPlayerProps
     }
     fetchData();
   }, []);
+
+  // update current index when selected video changes
+  useEffect(() => {
+    if (selectedVideoIndex !== null && selectedVideoIndex !== currentIndex) {
+      setCurrentIndex(selectedVideoIndex);
+    }
+  }, [selectedVideoIndex]);
 
   // preloading the next video
   useEffect(() => {
@@ -98,13 +113,17 @@ export default function VideoPlayer({ isMuted, onTitleChange }: VideoPlayerProps
           ref={videoRef}
           key={currentVideo.videoUrl}
           src={currentVideo.videoUrl}
+          poster="black.png"
           autoPlay
           muted={isMuted}
           playsInline
           controls={false}
           className="object-cover w-full h-full"
+          onTimeUpdate={(e) => onTimeUpdate && onTimeUpdate(e.currentTarget.currentTime)}
           onEnded={() => {
-            setCurrentIndex((prev) => (prev + 1) % videos.length);
+            const nextIndex = (currentIndex + 1) % videos.length;
+            setCurrentIndex(nextIndex);
+            onVideoIndexChange(nextIndex);
           }}
         />
     </div>
